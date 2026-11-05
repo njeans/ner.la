@@ -1,0 +1,105 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --text: #1a1a1a;
+  --text-muted: #666;
+  --bg: #fafafa;
+  --link: #1a1a1a;
+  --link-hover: #555;
+  --border: #e0e0e0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+}
+
+main {
+  max-width: 480px;
+  width: 100%;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.tagline {
+  color: var(--text-muted);
+  font-size: 1.125rem;
+  margin-top: 0.5rem;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.links a {
+  color: var(--link);
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.links a:hover {
+  color: var(--link-hover);
+  border-color: var(--link-hover);
+}
+
+.email {
+  margin-top: 2rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+}
+
+.resume {
+  margin-top: 2rem;
+}
+
+.resume a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.resume a:hover {
+  color: var(--text);
+  border-color: var(--text);
+}
+
+footer {
+  margin-top: 4rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
