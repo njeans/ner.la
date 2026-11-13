@@ -9,20 +9,86 @@
 </head>
 <body>
   <main>
+    <img class="photo" src="photo.jpg" alt="Nerla Jean-Louis">
     <h1>Nerla Jean-Louis</h1>
-    <p class="tagline">A short tagline about yourself.</p>
+    <p class="tagline">Recent phd graduate interested in privacy and trusted execution environments.</p>
+
+    <p class="cv">
+      <a href="nerla-2026.pdf">Resume / CV &darr;</a>
+    </p>
 
     <nav class="links">
+      <h2>Links</h2>
       <a href="https://github.com/njeans">GitHub</a>
       <a href="https://x.com/nerlsss">X / Twitter</a>
       <a href="https://linkedin.com/in/nerla-jean-louis-332a79a1">LinkedIn</a>
     </nav>
 
-    <p class="cv">
-      <a href="nerla-2026.pdf">Resume &darr;</a>
-    </p>
+    <section class="papers">
+      <h2>Papers</h2>
+      <ul>
+        <li><a href="https://doi.org/10.1109/EuroSP68448.2026.00034">PROF: Protected Order Flow in a Profit-Seeking World</a> <span>EuroS&amp;P 2026</span></li>
+        <li><a href="https://petsymposium.org/popets/2024/popets-2024-0036.php">SGXonerated: Finding (and Partially Fixing) Privacy Flaws in TEE-based Smart Contract Platforms</a> <span>PoPETs 2024</span></li>
+        <li><a href="https://doi.org/10.1109/SP40001.2021.00038">CanDID: Can-Do Decentralized Identity with Legacy Compatibility</a> <span>S&amp;P 2021</span></li>
+        <li><a href="https://eprint.iacr.org/2024/1676">The Sting Framework: Proving the Existence of Superclass Adversaries</a> <span>ePrint 2024</span></li>
+      </ul>
+      <details>
+        <summary>More papers</summary>
+        <ul>
+          <li><a href="https://doi.org/10.1109/CLOUD49709.2020.00039">Auto-Generation of Domain-Specific Systems: Cloud-Hosted DevOps</a> <span>CLOUD 2020</span></li>
+          <li><a href="https://doi.org/10.1109/DSN.2019.00062">FabZK: Privacy-Preserving, Auditable Smart Contracts in Hyperledger Fabric</a> <span>DSN 2019</span></li>
+          <li><a href="https://arxiv.org/abs/2210.12610">Partially Trusting the Service Mesh Control Plane</a> <span>arXiv 2022</span></li>
+        </ul>
+      </details>
+    </section>
+
+    <section class="projects">
+      <h2>Projects</h2>
+      <ul>
+        <li><a href="https://github.com/njeans/gramine/tree/tcb-migration">Gramine TCB Migration</a> <span>Fork of the Gramine framework for Intel SGX enabling TCB migration of sealed files.</span></li>
+        <li><a href="https://github.com/njeans/dstack/tree/update-demo/demo">TEE App Update Governance</a> <span>Demo of governance-voted application updates with user opt-out and data re-encryption for TEE-based apps.</span></li>
+        <li><a href="https://github.com/njeans/query-router">Query Sharding</a> <span>Privacy-preserving OpenAI-compatible proxy that splits queries into generic sub-questions to hide intent from untrusted providers. Private Routing &amp; Darkbloom prizes, <a href="https://localhostai.nyc">LocalhostAI.nyc</a> Hackathon Nov 2026.</span></li>
+        <li><a href="https://github.com/initc3/tee-offchain">TEE Rollups</a> <span>Off-chain computing to fix access patterns in TEE-based smart contracts. 1st Place, IC3 Hackathon 2023. <a href="https://medium.com/@dsl_uiuc/tee-rollups-fixing-access-patterns-in-tee-based-smart-contracts-with-off-chain-computing-b2f3acfe335f">Blog post</a>.</span></li>
+      </ul>
+      <details>
+        <summary>More projects</summary>
+        <ul>
+          <li><a href="https://github.com/njeans/secret-tippingpoint">MedTracker</a> <span>Private, traceable contamination tracking on Secret Network. 2nd Place, IC3 Hackathon 2022.</span></li>
+          <li><a href="https://github.com/njeans/pktransfer">Secure Data Recovery</a> <span>Private key transfer using Intel SGX enclaves and a blockchain bulletin board.</span></li>
+          <li><a href="https://github.com/njeans/chinese-wall-blockchain">Flexible Access Control for Permissioned Blockchain</a> <span>Revocable access control applied to the Chinese Wall model. CS 563.</span></li>
+        </ul>
+      </details>
+    </section>
+
   </main>
 
   <footer>ner.la</footer>
+
+  <button class="theme-toggle" aria-label="Toggle dark mode">&#9790;</button>
+
+  <script>
+    (function () {
+      var toggle = document.querySelector('.theme-toggle');
+      var root = document.documentElement;
+      var stored = localStorage.getItem('theme');
+      if (stored) {
+        root.setAttribute('data-theme', stored);
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        root.setAttribute('data-theme', 'dark');
+      }
+      function update() {
+        var isDark = root.getAttribute('data-theme') === 'dark';
+        toggle.textContent = isDark ? '\u2600' : '\u263E';
+      }
+      update();
+      toggle.addEventListener('click', function () {
+        var isDark = root.getAttribute('data-theme') === 'dark';
+        var next = isDark ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        update();
+      });
+    })();
+  </script>
 </body>
 </html>

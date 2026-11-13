@@ -15,6 +15,15 @@
   --border: #e0e0e0;
 }
 
+[data-theme="dark"] {
+  --text: #e8e8e8;
+  --text-muted: #999;
+  --bg: #111;
+  --link: #e8e8e8;
+  --link-hover: #aaa;
+  --border: #333;
+}
+
 html {
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
@@ -38,6 +47,14 @@ main {
   width: 100%;
 }
 
+.photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+}
+
 h1 {
   font-size: 2rem;
   font-weight: 600;
@@ -55,7 +72,14 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
+}
+
+.links h2 {
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0;
 }
 
 .links a {
@@ -80,6 +104,105 @@ h1 {
   letter-spacing: 0.05em;
 }
 
+.papers,
+.projects {
+  margin-top: 2.5rem;
+}
+
+.papers h2,
+.projects h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.papers ul,
+.projects ul {
+  list-style: none;
+}
+
+.papers li,
+.projects li {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.papers a,
+.projects a {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.papers a:hover,
+.projects a:hover {
+  color: var(--link-hover);
+  border-color: var(--link-hover);
+}
+
+.papers span,
+.projects span {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.papers details,
+.projects details {
+  margin-top: 0.5rem;
+}
+
+.papers summary,
+.projects summary {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  list-style: none;
+}
+
+.papers summary::-webkit-details-marker,
+.projects summary::-webkit-details-marker {
+  display: none;
+}
+
+.papers summary::before,
+.projects summary::before {
+  content: "+ ";
+}
+
+.papers details[open] summary::before,
+.projects details[open] summary::before {
+  content: "- ";
+}
+
+.papers details ul,
+.projects details ul {
+  margin-top: 0.5rem;
+}
+
+.cv {
+  margin-top: 0.75rem;
+}
+
+.cv a {
+  display: inline-block;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.5rem 1.25rem;
+  border: 1px solid var(--text);
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.cv a:hover {
+  background: var(--text);
+  color: var(--bg);
+}
+
 .resume {
   margin-top: 2rem;
 }
@@ -95,6 +218,26 @@ h1 {
 
 .resume a:hover {
   color: var(--text);
+  border-color: var(--text);
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--text);
+  transition: border-color 0.2s;
+}
+
+.theme-toggle:hover {
   border-color: var(--text);
 }
 
